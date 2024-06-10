@@ -1,6 +1,17 @@
 # Compilers-Algorithms
 A series of tasks and projects related to compiler construction and automata theory, implemented using Java and ANTLR. The tasks cover various fundamental concepts and practical implementations in the field of compilers and formal languages.
 
+The set of tasks are:
+1. RegExToNfa
+2. Nfa To Dfa
+3. FallbackDfa
+4. CfgEpsUnitElim
+5. CfgLeftRecElim
+6. CfgFirstFollow
+7. Task 7: ANTLR Lexical Analysis
+8. CfgLl1Parser
+9. Task 9: ANTLR Parsing I
+10. Task 10: ANTLR Parsing II
 
 # 1. RegExToNfa
 <details><summary>Explanation</summary> 
