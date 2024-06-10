@@ -364,3 +364,43 @@ For this task you will implement an LL(1) parser using pushdown automata (PDA) a
 </details>
 
 
+# 9. Task 9: ANTLR Parsing I
+<details><summary>Explanation</summary> 
+For this task, you are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md). You need to implement a simple lexical analyzer using ANTLR[^2]. 
+ 
+ • You are required to use ANTLR to implement the SDD appearing below for a CFG
+ that generates {0,1,#}+.
+
+  ```plaintext
+ *S −→ F             S.check=F.check∗F.m
+ F −→ DT             D.r=1; D.c=1
+ T.r = 2;            T.l =D.l
+                     F.check = D.check ∗T.check; F.m = T.m
+ T −→ #N             N.r=T.r; N.c=1 N.l=T.l
+ T.check = N.check;  T.m = N.m
+ T −→ ε T.check=1;   T.m=1
+ N −→ DT D.r=N.r;    D.c=1
+ T.l = N.l;          T.r = N.r+1
+                     N.check = D.check ∗T.check; N.m = equals(D.l,N.l)∗T.m
+ D −→ 0D1            D1.r=D.r; D1.c=D.c+1
+                     D.l = D1.l; D.check = (1−equals(D.c,D.r))∗D1.check
+ D −→ 1D1            D1.r=D.r; D1.c=D.c+1
+                     D.l = D1.l; D.check = equals(D.c,D.r)∗D1.check
+ D −→ 0              D.l=D.c; D.check=1−equals(D.c,D.r)
+ D −→ 1              D.l=D.c; D.check=equals(D.c,D.r)*
+```
+ • The start variable S has an attribute check whose value is 1 if the generated string is a diagonal boolean matrix; otherwise, the value of Check is 0. A string over {0,1,#} represents a boolean matrix if it is of the form r1#r2#...#rn, where ri ∈ {0,1}+ and |ri| = |rj|, for every 1 ≤ i,j ≤ n; the matrix is diagonal if, in addition, the jth bit of ri, 1 ≤j ≤|ri|, is 1 if and only if j = i, for every 1 ≤ i ≤ n.
+
+• **The only operations allowed on attributes are assignments, additions, subtraction, multiplications, and equality checks; an equality check is an expression of the form** equals(x,y) **whose value is 1 if x is equal to y and is 0 otherwise.**
+• The provided method sCheckValue uses the ANTLR grammar to get the value of S.check for a given input string. 
+
+• For example, for the string 
+ ```plaintext
+10#01
+```
+, sCheckValue returns 1; and returns 0 for the string 
+ ```plaintext
+11#01
+```
+</details>
+
