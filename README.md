@@ -394,11 +394,11 @@ For this task, you are urged to prepare by taking a look at the ANTLR documentat
 • **The only operations allowed on attributes are assignments, additions, subtraction, multiplications, and equality checks; an equality check is an expression of the form** equals(x,y) **whose value is 1 if x is equal to y and is 0 otherwise.**
 • The provided method sCheckValue uses the ANTLR grammar to get the value of S.check for a given input string. 
 
-• For example, for the string 
+• For example, for the string, sCheckValue returns 1
  ```plaintext
 10#01
 ```
-, sCheckValue returns 1; and returns 0 for the string 
+; and returns 0 for the string 
  ```plaintext
 11#01
 ```
