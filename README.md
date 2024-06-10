@@ -131,7 +131,11 @@ For this task, you need to implement a fallback deterministic finite automaton w
   ```
 ![FDFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/d2d79e0e-a562-4520-a6a3-30f8f56c4277)
 
- • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output = baaba,2;bb,1.
+ • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output:
+ 
+ ```plaintext
+ baaba,2;bb,1.
+ ```
 </details>
 
 
