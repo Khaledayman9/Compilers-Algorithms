@@ -371,7 +371,7 @@ For this task, you are urged to prepare by taking a look at the ANTLR documentat
  • You are required to use ANTLR to implement the SDD appearing below for a CFG
  that generates {0,1,#}+.
 
-  *```plaintext
+  ```plaintext
  S −→ F             S.check=F.check∗F.m
  F −→ DT             D.r=1; D.c=1
  T.r = 2;            T.l =D.l
@@ -388,7 +388,7 @@ For this task, you are urged to prepare by taking a look at the ANTLR documentat
                      D.l = D1.l; D.check = equals(D.c,D.r)∗D1.check
  D −→ 0              D.l=D.c; D.check=1−equals(D.c,D.r)
  D −→ 1              D.l=D.c; D.check=equals(D.c,D.r)
-```*
+```
  • The start variable S has an attribute check whose value is 1 if the generated string is a diagonal boolean matrix; otherwise, the value of Check is 0. A string over {0,1,#} represents a boolean matrix if it is of the form r1#r2#...#rn, where ri ∈ {0,1}+ and |ri| = |rj|, for every 1 ≤ i,j ≤ n; the matrix is diagonal if, in addition, the jth bit of ri, 1 ≤j ≤|ri|, is 1 if and only if j = i, for every 1 ≤ i ≤ n.
 
 • **The only operations allowed on attributes are assignments, additions, subtraction, multiplications, and equality checks; an equality check is an expression of the form** equals(x,y) **whose value is 1 if x is equal to y and is 0 otherwise.**
