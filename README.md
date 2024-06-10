@@ -82,3 +82,42 @@ For this task, you need to implement the classical algorithm for constructing a 
  – Thus, following the classical construction, the following is a (split for readability) string representing a DFA equivalent to the NFA in the above figure.
  0;0/1/2;0/1/2/3;0/2;0/2/3;0/3#a;b#0,a,0;0,b,0/1/2;0/1/2,a,0/2;0/1/2,b,0/1/2/3;0/1/2/3,a,0/2/3;0/1/2/3,b,0/1/2/3;0/2,a,0;0/2,b,0/1/2/3;0/2/3,a,0/3;0/2/3,b,0/1/2/3;0/3,a,0/3;0/3,b,0/1/2/3#0#0/1/2/3;0/2/3;0/3
 </details>
+
+
+
+# 2. FallbackDfa
+<details><summary>Explanation</summary> 
+For this task, you need to implement a fallback deterministic finite automaton with actions (FDFA) abstract data type. Recall that an FDFA is a sextuple (Q,Σ,δ,q0,F,A): Q is a non-empty, finite set of states; Σ is a non-empty, finite set of symbols (an alphabet); δ : Q×Σ −→ Q is the transition function; q0 ∈ Q is the start state; F ⊆ Q is the set of accept states; and A is function that maps every state in Q to an action. 
+
+ • We make the following assumptions about FDFA for simplicity.
+ 
+ a) The set of states Q is always of the form {0,...,n}, for some n ∈ N.
+ 
+ b) The alphabet Σ is always a subset of the Latin alphabet, not including e.
+ 
+ c) q0 / ∈ F.
+ 
+ d) A(q) is the action which appends the token “lex,q” to a list, and q is the state name.
+ 
+ • You should implement a class constructor FallbackDfa and a method run.
+ 
+ • FallbackDfa, a class constructor, takes one parameter which is a string description of an FDFA and constructs an FDFA instance as per the description. A string describing an FDFA is of the form Q#A#T#I#F.
+ 
+ – Q is a string representation of the set of states; a semicolon-separated sequence of sorted integer literals.
+ 
+ – A is a string representation of the input alphabet; a semicolon-separated sequence of alphabetically sorted symbols.
+ 
+ – T is a string representation of the transition function. T is a semicolon-separated sequence of triples. Each triple is a string representing a single transition; a comma separated sequence i,a,j where i is a state of Q, a a symbol of A, and j a state of Q representing a transition from i to j on input a. These triples are sorted by the source state i and then by the input a.
+ 
+ – I is an integer literal representing the initial state.
+ 
+ – F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
+ 
+ – Note that the function A is not encoded in the string representation since it is fixed for all FDFA as indicated in the simplifying assumptions above.
+ 
+ – Forexample, the following string represents the FDFA whose state diagram appears in the figure below.
+ 0;1;2;3#a;b#0,a,0;0,b,1;1,a,2;1,b,1;2,a,0;2,b,3;3,a,3;3,b,3#0#1;2
+![FDFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/d2d79e0e-a562-4520-a6a3-30f8f56c4277)
+
+ • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output = baaba,2;bb,1.
+</details>
