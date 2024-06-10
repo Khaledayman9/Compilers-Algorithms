@@ -237,7 +237,7 @@ For this task, you will implement context-free grammar (CFG) left-recursion elim
  ```
 This CFG will have the following string encoding.
 ```plaintext
-S; T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si
+S;T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si
 ```
  • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
 
