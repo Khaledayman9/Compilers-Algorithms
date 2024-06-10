@@ -302,16 +302,17 @@ S; T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
 
 # 7. Task 7: ANTLR Lexical Analysis
 <details><summary>Explanation</summary> 
-For this task, you need to implement a simple lexical analyzer using ANTLR[^2].
- 
+For this task, you need to implement a simple lexical analyzer using aNTLR[^2]. You are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md).
 
  
-You are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md).
+[^2]: [What is ANTLR?](https://www.antlr.org) 
+ 
+
 
 Using ANTLR, you will implement a lexical analyzer with the following specifications. Given an input of a non-empty string of bits, the string should be split into segments and the outputs for consecutive segments should be produced in sequence. A segment is a string of length three, but if fewer than three symbols are what is available then the segment is the string of available symbols. If the segment is the string **000**, then the corresponding output is **ONE**. If the segment is any other string of length three, then the corresponding output is the result of ANDing the last two bits of the segment. If the segment is a string of length less than three, then the output is **ERROR**. Here are some illustrative examples.
 
 ![table](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/89d8a716-3eb7-47df-84cd-18b5d7cee792)
-[^2]: [What is ANTLR?](https://www.antlr.org) 
+
 </details>
 
 
