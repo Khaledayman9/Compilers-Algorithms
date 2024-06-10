@@ -444,7 +444,7 @@ For this task you will use ANTLR to implement an SDT or an SDD to count the numb
 
 
 # Tests:
-We have 2 tests for each task named TestsBatch0 and TestsBatch1 respectively, where TestsBatch0 accomodates for Public Test Cases and TestsBatch1 accomodates for Private Test Cases.
+We have 2 tests for each task named TestsBatch0 and TestsBatchN respectively, where TestsBatch0 accomodates for Public Test Cases and TestsBatchN accomodates for Private Test Cases, where N can be any number except 0.
 
 # Technologies:
 - Java
