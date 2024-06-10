@@ -404,3 +404,27 @@ For this task, you are urged to prepare by taking a look at the ANTLR documentat
 ```
 </details>
 
+
+# 10. Task 10: ANTLR Parsing II
+<details><summary>Explanation</summary> 
+For this task you will use ANTLR to implement an SDT or an SDD to count the number of plateaus in a sequence of non-negative integers. A plateau in a sequence of non-negative integers is a contiguous sub-sequence of two or more identical integers.
+ 
+ • The grammar of your SDT/SDD should generate all strings representing sequences of
+ integers.
+ 
+ • Asequence of non-negative integers is represented by a (possibly empty) string of the form a1,a2,...,an, where ai is a sequence of digits.
+ 
+ • For example, the following are representations of sequences of non-negative integers.
+ ```plaintext
+ – 1, 4, 4, 4, 2, 2, 3
+ – 23, 24, 25
+ – 1
+ – 546, 0, 0, 7
+ ```
+ • In your SDT/SDD, the start variable s should have an attribute val whose value is the  number of plateaus in the input sequence.
+ 
+ • In the example sequences above, **val** should be 2 for sequence (a), 0 for sequences (b) and (c), and 1 for sequence (d).
+ 
+ • **The only operations allowed on attributes are assignments, logical operations (&&, ||, !), equality checks (==, !=), and relational checks (<,>, <=, >=)**.
+
+</details>
