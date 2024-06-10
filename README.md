@@ -164,9 +164,9 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  
  – T is a string representation of the set of terminals; a semicolon-separated sequence of alphabetically sorted lower-case English letters.
  
- – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of set of right-hand sides—a comma-separated sequence of lexicographically sorted strings[^1]. These pairs are sorted by the common left-hand side i based on the ordering of V.
+ – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of set of right-hand sides—a comma-separated sequence of lexicographically sorted strings[^Reference 1]. These pairs are sorted by the common left-hand side i based on the ordering of V.
 
-
+[^Reference 1]: [Natural Ordering of Strings in Java](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))
 
 • Forexample, consider the CFG G1 = ({S,A,B,C},{a,b,c,d,x},R,S), where R is given by the following productions.
  ```plaintext
@@ -200,7 +200,7 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  B/AA,AC,ACA,Bc,CA,CAA,CAC,CACA,CC,CCA,b,c,d;C/Bc,b,c,d
 ```
 </details>
-[^1]: [Natural Ordering of Strings in Java](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))
+
 
 # 5. CfgLeftRecElim
 <details><summary>Explanation</summary> 
@@ -302,9 +302,9 @@ S; T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
 
 # 7. Task 7: ANTLR Lexical Analysis
 <details><summary>Explanation</summary> 
-For this task, you need to implement a simple lexical analyzer using ANTLR[^2]. You are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md).
+For this task, you need to implement a simple lexical analyzer using ANTLR[^Reference 2]. You are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md).
 
-
+[^Reference 2]: [What is ANTLR?](https://www.antlr.org) 
  
 
 Using ANTLR, you will implement a lexical analyzer with the following specifications. Given an input of a non-empty string of bits, the string should be split into segments and the outputs for consecutive segments should be produced in sequence. A segment is a string of length three, but if fewer than three symbols are what is available then the segment is the string of available symbols. If the segment is the string **000**, then the corresponding output is **ONE**. If the segment is any other string of length three, then the corresponding output is the result of ANDing the last two bits of the segment. If the segment is a string of length less than three, then the output is **ERROR**. Here are some illustrative examples.
@@ -312,7 +312,7 @@ Using ANTLR, you will implement a lexical analyzer with the following specificat
 ![table](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/89d8a716-3eb7-47df-84cd-18b5d7cee792)
 
 </details>
-[^2]: [What is ANTLR?](https://www.antlr.org) 
+
 # 8. CfgLl1Parser
 <details><summary>Explanation</summary> 
 For this task you will implement an LL(1) parser using pushdown automata (PDA) and predictive parsing tables. Given an input context-free grammar G = (V,Σ,R,S), along with the First and Follow sets for all rules, you need to (i) construct the predictive parsing table for G, (ii) construct the PDA equivalent to G, and (iii) implement an LL(1) parser for G which makes use of the table and the PDA to direct its decisions. Given an input string w, the parser should signal an error if w / ∈ L(G) and produce a derivation of w from S if w ∈ L(G).
