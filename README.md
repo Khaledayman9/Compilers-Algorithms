@@ -1,6 +1,8 @@
 # Compilers-Algorithms
 A series of tasks and projects related to compiler construction and automata theory, implemented using Java and ANTLR. The tasks cover various fundamental concepts and practical implementations in the field of compilers and formal languages.
 
+# Description
+
 The set of tasks are:
 1. RegExToNfa
 2. Nfa To Dfa
@@ -439,3 +441,13 @@ For this task you will use ANTLR to implement an SDT or an SDD to count the numb
  • **The only operations allowed on attributes are assignments, logical operations (&&, ||, !), equality checks (==, !=), and relational checks (<,>, <=, >=)**.
 
 </details>
+
+
+# Tests:
+We have 2 tests for each task named TestsBatch0 and TestsBatch1 respectively, where TestsBatch0 accomodates for Public Test Cases and TestsBatch1 accomodates for Private Test Cases.
+
+# Technologies:
+- Java
+- Eclipse 2022 Edition
+- ANTLR
+- intelliJ IDEA 2024.1
