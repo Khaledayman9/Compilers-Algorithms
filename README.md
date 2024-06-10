@@ -200,3 +200,51 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  B/AA,AC,ACA,Bc,CA,CAA,CAC,CACA,CC,CCA,b,c,d;C/Bc,b,c,d
 ```
 </details>
+
+
+# 5. CfgLeftRecElim
+<details><summary>Explanation</summary> 
+For this task, you will implement context-free grammar (CFG) left-recursion elimination algorithm introduced in Lecture 3 of CSEN1003. Recall that a CFG is a quadruple (V,Σ,R,S) where V and Σ are disjoint alphabets (respectively, containing variables and terminals), R ⊆ V ×(V ∪Σ)∗ is a set of rules, and S ∈ V is the start variable.
+ 
+ • We make the following assumptions about input CFGs for simplicity.
+ 
+ a) The set V of variables consists of upper-case English letters.
+ 
+ b) The start variable is the symbol S.
+ 
+ c) The set Σ of terminals consists of lower-case English letters (except the letter e).
+ 
+ d) The letter “e” represents ε.
+ 
+ e) We only consider CFGs with no cycles and no ε-rules.
+ 
+ • You should implement a class constructor CfgLeftRecElim, and two methods; toString, and eliminateLeftRecursion.
+ 
+ • CfgLeftRecElim, a class constructor, takes one parameter which is a string description of a CFG and constructs a CFG instance. A string encoding a CFG is of the form V#T#R.
+ 
+ – V is a string representation of the set of variables; a semicolon-separated sequence of upper-case English letters, starting with S.
+ 
+ – T is a string representation of the set of terminals; a semicolon-separated sequence of alphabetically sorted lower-case English letters.
+ 
+ – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of the set of right-hand sides—a comma-separated sequence of strings. These pairs are sorted by the common left-hand side i based on the ordering of V.
+ 
+ • For example, consider the CFG G1 = ({S,T,L},{a,b,c,d,i},R,S), where R is given
+ by the following productions.
+ ```plaintext
+ S → ScTi|La|T i|b
+ T → aSb|LabS|i
+ L → SdL|Si
+ ```
+This CFG will have the following string encoding.
+```plaintext
+S; T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si
+```
+ • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
+
+ • eliminateLeftRecursion eliminates left recursion in the constructed CFG where a newly-introduced variable, for the elimination of immediate left-recursion for variable A, is the string A′. The letter e denotes the empty string. For example, after invoking the method on G1, the string returned by toString is the following (split for readability)
+ ```plaintext
+        S;T;L;S';L'#a;b;c;d;i#S/LaS',TiS',bS';T/aSb,LabS,i;
+ L/aSbiS'dLL',iiS'dLL',bS'dLL',aSbiS'iL',iiS'iL',bS'iL';S'/cTiS',e;
+        L'/aS'dLL',abSiS'dLL',aS'iL',abSiS'iL',e
+```
+</details>
