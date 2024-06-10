@@ -177,7 +177,6 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  • eliminateEpsilonRules eliminates epsilon rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following (split for readability)
  
  S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,C,c,d;
- 
  B/A,AA,AC,ACA,C,CA,CAA,CAC,CACA,CC,CCA;C/A,b
 
  • eliminateUnitRules eliminates unit rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following
@@ -187,6 +186,5 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  • Additionally, the above two methods can be called sequentially. Thus the result of invoking toString after invoking eliminateEpsilonRules then eliminateUnitRules returns the following (split for readability)
  
  S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,b,c,d;
- 
  B/AA,AC,ACA,Bc,CA,CAA,CAC,CACA,CC,CCA,b,c,d;C/Bc,b,c,d
 </details>
