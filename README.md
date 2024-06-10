@@ -300,10 +300,10 @@ S; T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
  ```
 </details>
 
-
 # 7. Task 7: ANTLR Lexical Analysis
 <details><summary>Explanation</summary> 
-For this task, you need to implement a simple lexical analyzer using ANTLR[^2]. Your tutor will introduce you to ANTLR during the session.
+For this task, you need to implement a simple lexical analyzer using ANTLR[^2].
+ 
 [^2]: [What is ANTLR?](https://www.antlr.org) 
  
 You are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md).
@@ -312,3 +312,5 @@ Using ANTLR, you will implement a lexical analyzer with the following specificat
 
 ![table](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/89d8a716-3eb7-47df-84cd-18b5d7cee792)
 </details>
+
+
