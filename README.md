@@ -156,7 +156,7 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  
  – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of set of right-hand sides—a comma-separated sequence of lexicographically sorted strings[^1]. These pairs are sorted by the common left-hand side i based on the ordering of V.
 
-[^1]: [Natural Ordering of Strings in Java]([https://example.com](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)))
+[^1]: [Natural Ordering of Strings in Java](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))
 
 • Forexample, consider the CFG G1 = ({S,A,B,C},{a,b,c,d,x},R,S), where R is given by the following productions.
 
@@ -175,16 +175,21 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
  
  • eliminateEpsilonRules eliminates epsilon rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following (split for readability)
- 
+
+```plaintext
  S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,C,c,d;
  B/A,AA,AC,ACA,C,CA,CAA,CAC,CACA,CC,CCA;C/A,b
+```
+ 
+
 
  • eliminateUnitRules eliminates unit rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following
  
  S;A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,b,c,d,e;B/CACA,e;C/Bc,b,c,d,e
  
  • Additionally, the above two methods can be called sequentially. Thus the result of invoking toString after invoking eliminateEpsilonRules then eliminateUnitRules returns the following (split for readability)
- 
+ ```plaintext
  S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,b,c,d;
  B/AA,AC,ACA,Bc,CA,CAA,CAC,CACA,CC,CCA,b,c,d;C/Bc,b,c,d
+```
 </details>
