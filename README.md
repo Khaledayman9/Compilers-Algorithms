@@ -27,9 +27,9 @@ For this task, we need to implement Thompson’s construction for converting a r
  
  • RegExToNfa takes one parameter which is a string of the form A#R. A is a string representation of an alphabet Σ, a semicolon-separated sequence of alphabetically sorted symbols, and R is a postfix regular expression over Σ. RegExToNfa constructs the NFA to R as per Thompson’s construction.
  
- • toString returns a string describing the NFA resulting from Thompson’s construction.
+ • toString returns a string describing the NFA resulting from Thompson’s construction. A string describing the NFA resulting from Thompson’s construction is of the form Q#A#T#I#F.
  
- A string describing the NFA resulting from Thompson’s construction is of the form Q#A#T#I#F.– Qis a string representation of the set of states; a semicolon-separated sequence of sorted integer literals.
+– Qis a string representation of the set of states; a semicolon-separated sequence of sorted integer literals.
  
 – A is a string representation of the input alphabet; a semicolon-separated sequence of alphabetically sorted symbols
 
@@ -37,8 +37,10 @@ For this task, we need to implement Thompson’s construction for converting a r
 
 – I is an integer literal representing the initial state.– F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
  
-– For example, toString, being invoked on a RegExToNfa object representing the regular expression a;b#ab|, should return the string 0;1;2;3;4;5#a;b#0,a,1;1,e,5;2,b,3;3,e,5;4,e,0;4,e,2#4#5
-
+– For example, toString, being invoked on a RegExToNfa object representing the regular expression a;b#ab|, should return the string
+```plaintext
+0;1;2;3;4;5#a;b#0,a,1;1,e,5;2,b,3;3,e,5;4,e,0;4,e,2#4#5
+```
 </details>
 
 
@@ -70,9 +72,9 @@ For this task, you need to implement the classical algorithm for constructing a 
  – F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
 
 – For example, the NFA for which the state diagram appears below may have the following string representation.
-
+ ```plaintext
  0;1;2;3#a;b#0,a,0;0,b,0;0,b,1;1,a,2;1,e,2;2,b,3;3,a,3;3,b,3#0#3
- 
+ ```
 ![DFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/50d7f699-6634-4bab-8643-ee4b7ea96a6d)
 
  • toString returns a string representation of the constructed DFA. A string representation of a DFA returned by toString is similar to that of an NFA—a string of the form Q#A#T#I#F.
@@ -84,7 +86,11 @@ For this task, you need to implement the classical algorithm for constructing a 
  – A DFA state corresponding to the empty set of NFA states is represented by-1.
  
  – Thus, following the classical construction, the following is a (split for readability) string representing a DFA equivalent to the NFA in the above figure.
- 0;0/1/2;0/1/2/3;0/2;0/2/3;0/3#a;b#0,a,0;0,b,0/1/2;0/1/2,a,0/2;0/1/2,b,0/1/2/3;0/1/2/3,a,0/2/3;0/1/2/3,b,0/1/2/3;0/2,a,0;0/2,b,0/1/2/3;0/2/3,a,0/3;0/2/3,b,0/1/2/3;0/3,a,0/3;0/3,b,0/1/2/3#0#0/1/2/3;0/2/3;0/3
+ ```plaintext
+  0;0/1/2;0/1/2/3;0/2;0/2/3;0/3#a;b#0,a,0;0,b,0/1/2;0/1/2,a,0/2;
+ 0/1/2,b,0/1/2/3;0/1/2/3,a,0/2/3;0/1/2/3,b,0/1/2/3;0/2,a,0;0/2,b,0/1/2/3;
+ 0/2/3,a,0/3;0/2/3,b,0/1/2/3;0/3,a,0/3;0/3,b,0/1/2/3#0#0/1/2/3;0/2/3;0/3
+```
 </details>
 
 
@@ -120,9 +126,9 @@ For this task, you need to implement a fallback deterministic finite automaton w
  – Note that the function A is not encoded in the string representation since it is fixed for all FDFA as indicated in the simplifying assumptions above.
  
  – Forexample, the following string represents the FDFA whose state diagram appears in the figure below.
- 
+  ```plaintext
  0;1;2;3#a;b#0,a,0;0,b,1;1,a,2;1,b,1;2,a,0;2,b,3;3,a,3;3,b,3#0#1;2
- 
+  ```
 ![FDFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/d2d79e0e-a562-4520-a6a3-30f8f56c4277)
 
  • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output = baaba,2;bb,1.
@@ -159,19 +165,16 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
 [^1]: [Natural Ordering of Strings in Java](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String))
 
 • Forexample, consider the CFG G1 = ({S,A,B,C},{a,b,c,d,x},R,S), where R is given by the following productions.
-
+ ```plaintext
  S → aAb|xB
- 
  A → Bc|C|c|d
- 
  B → CACA|ε
- 
  C → A|b|ε
- 
+ ```
  This CFG will have the following string encoding.
- 
+ ```plaintext
  S; A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,C,c,d;B/CACA,e;C/A,b,e
-
+ ```
  • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
  
  • eliminateEpsilonRules eliminates epsilon rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following (split for readability)
@@ -184,9 +187,9 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
 
 
  • eliminateUnitRules eliminates unit rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following
- 
+ ```plaintext
  S;A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,b,c,d,e;B/CACA,e;C/Bc,b,c,d,e
- 
+ ```
  • Additionally, the above two methods can be called sequentially. Thus the result of invoking toString after invoking eliminateEpsilonRules then eliminateUnitRules returns the following (split for readability)
  ```plaintext
  S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,b,c,d;
