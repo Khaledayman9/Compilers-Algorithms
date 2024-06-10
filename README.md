@@ -65,7 +65,9 @@ For this task, you need to implement the classical algorithm for constructing a 
  
  – T is a string representation of the transition function. T is a semicolon-separated sequence of triples. Each triple is a string representing a single transition; a comma separated sequence i,a,j where i is a state of Q, a a symbol of A or e, and j a state of Q representing a transition from i to j on input a. These triples are sorted by the source state i, then (if the same state has more than one outgoing transition) by the input a, and then (if multiple triples share the same source state and input, due to non-determinism) by the destination state j.
  
- – I is an integer literal representing the initial state.– F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
+ – I is an integer literal representing the initial state.
+ 
+ – F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
 
 – For example, the NFA for which the state diagram appears below may have the following string representation.
  0;1;2;3#a;b#0,a,0;0,b,0;0,b,1;1,a,2;1,e,2;2,b,3;3,a,3;3,b,3#0#3
