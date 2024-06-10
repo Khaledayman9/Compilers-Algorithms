@@ -70,7 +70,9 @@ For this task, you need to implement the classical algorithm for constructing a 
  – F is a string representation of the set of accept states; a semicolon-separated sequence of sorted integer literals.
 
 – For example, the NFA for which the state diagram appears below may have the following string representation.
+
  0;1;2;3#a;b#0,a,0;0,b,0;0,b,1;1,a,2;1,e,2;2,b,3;3,a,3;3,b,3#0#3
+ 
 ![DFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/50d7f699-6634-4bab-8643-ee4b7ea96a6d)
 
  • toString returns a string representation of the constructed DFA. A string representation of a DFA returned by toString is similar to that of an NFA—a string of the form Q#A#T#I#F.
@@ -118,7 +120,9 @@ For this task, you need to implement a fallback deterministic finite automaton w
  – Note that the function A is not encoded in the string representation since it is fixed for all FDFA as indicated in the simplifying assumptions above.
  
  – Forexample, the following string represents the FDFA whose state diagram appears in the figure below.
+ 
  0;1;2;3#a;b#0,a,0;0,b,1;1,a,2;1,b,1;2,a,0;2,b,3;3,a,3;3,b,3#0#1;2
+ 
 ![FDFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/d2d79e0e-a562-4520-a6a3-30f8f56c4277)
 
  • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output = baaba,2;bb,1.
