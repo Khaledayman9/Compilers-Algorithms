@@ -3,7 +3,7 @@ A series of tasks and projects related to compiler construction and automata the
 
 # Description
 
-The set of tasks are:
+**TASKS**:
 1. RegExToNfa
 2. Nfa To Dfa
 3. FallbackDfa
