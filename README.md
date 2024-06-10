@@ -89,7 +89,7 @@ For this task, you need to implement the classical algorithm for constructing a 
 
 
 
-# 2. FallbackDfa
+# 3. FallbackDfa
 <details><summary>Explanation</summary> 
 For this task, you need to implement a fallback deterministic finite automaton with actions (FDFA) abstract data type. Recall that an FDFA is a sextuple (Q,Σ,δ,q0,F,A): Q is a non-empty, finite set of states; Σ is a non-empty, finite set of symbols (an alphabet); δ : Q×Σ −→ Q is the transition function; q0 ∈ Q is the start state; F ⊆ Q is the set of accept states; and A is function that maps every state in Q to an action. 
 
@@ -126,4 +126,67 @@ For this task, you need to implement a fallback deterministic finite automaton w
 ![FDFA](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/d2d79e0e-a562-4520-a6a3-30f8f56c4277)
 
  • **run** simulates the operation of the constructed FDFA on a given string, and returns a semicolon-separated sequence of tokens. For example, running the above FDFA on the string baababb produces the output = baaba,2;bb,1.
+</details>
+
+
+
+# 4. CfgEpsUnitElim
+<details><summary>Explanation</summary> 
+For this task, you will implement the algorithms for eliminating epsilon and unit rules from a given context-free grammar (CFG). Recall that a CFG is a quadruple (V,Σ,R,S) where V and Σ are disjoint alphabets (respectively, containing variables and terminals), R ⊆ V ×(V ∪Σ)∗ is a set of rules, and S ∈ V is the start variable.
+ 
+ • We make the following assumptions about input CFGs for simplicity.
+ 
+ a) The set V of variables consists of upper-case English letters.
+ 
+ b) The start variable is the symbol S
+ .
+ c) The set Σ of terminals consists of lower-case English letters (except the letter e).
+ 
+ d) The letter “e” represents ε.
+ 
+ e) ε / ∈ L(G).
+ 
+ • You should implement a class constructor CfgEpsUnitElim, and three methods; toString, eliminateEpsilonRules, and eliminateUnitRules.
+ 
+ • CfgEpsUnitElim, a class constructor, takes one parameter which is a string description of a CFG and constructs a CFG instance. A string encoding a CFG is of the form V#T#R.
+ 
+ – V is a string representation of the set of variables; a semicolon-separated sequence of upper-case English letters, starting with S.
+ 
+ – T is a string representation of the set of terminals; a semicolon-separated sequence of alphabetically sorted lower-case English letters.
+ 
+ – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of set of right-hand sides—a comma-separated sequence of lexicographically sorted strings[^1]. These pairs are sorted by the common left-hand side i based on the ordering of V.
+
+[^1]: [Natural Ordering of Strings in Java]([https://example.com](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)))
+
+• Forexample, consider the CFG G1 = ({S,A,B,C},{a,b,c,d,x},R,S), where R is given by the following productions.
+
+ S → aAb|xB
+ 
+ A → Bc|C|c|d
+ 
+ B → CACA|ε
+ 
+ C → A|b|ε
+ 
+ This CFG will have the following string encoding.
+ 
+ S; A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,C,c,d;B/CACA,e;C/A,b,e
+
+ • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
+ 
+ • eliminateEpsilonRules eliminates epsilon rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following (split for readability)
+ 
+ S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,C,c,d;
+ 
+ B/A,AA,AC,ACA,C,CA,CAA,CAC,CACA,CC,CCA;C/A,b
+
+ • eliminateUnitRules eliminates unit rules from the constructed CFG using the classical algorithm. For example, after invoking the method on G1, the string returned by toString is the following
+ 
+ S;A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,b,c,d,e;B/CACA,e;C/Bc,b,c,d,e
+ 
+ • Additionally, the above two methods can be called sequentially. Thus the result of invoking toString after invoking eliminateEpsilonRules then eliminateUnitRules returns the following (split for readability)
+ 
+ S;A;B;C#a;b;c;d;x#S/aAb,ab,x,xB;A/Bc,b,c,d;
+ 
+ B/AA,AC,ACA,Bc,CA,CAA,CAC,CACA,CC,CCA,b,c,d;C/Bc,b,c,d
 </details>
