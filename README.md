@@ -366,7 +366,7 @@ For this task you will implement an LL(1) parser using pushdown automata (PDA) a
 
 # 9. Task 9: ANTLR Parsing I
 <details><summary>Explanation</summary> 
-For this task, you are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md). You need to implement a simple lexical analyzer using ANTLR[^2]. 
+For this task, you are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md). 
  
  • You are required to use ANTLR to implement the SDD appearing below for a CFG
  that generates {0,1,#}+.
