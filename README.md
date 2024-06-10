@@ -205,6 +205,7 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
 # 5. CfgLeftRecElim
 <details><summary>Explanation</summary> 
 For this task, you will implement context-free grammar (CFG) left-recursion elimination algorithm introduced in Lecture 3 of CSEN1003. Recall that a CFG is a quadruple (V,Σ,R,S) where V and Σ are disjoint alphabets (respectively, containing variables and terminals), R ⊆ V ×(V ∪Σ)∗ is a set of rules, and S ∈ V is the start variable.
+
  
  • We make the following assumptions about input CFGs for simplicity.
  
@@ -247,4 +248,64 @@ S;T;L#a;b;c;d;i#S/ScTi,La,Ti,b;T/aSb,LabS,i;L/SdL,Si
  L/aSbiS'dLL',iiS'dLL',bS'dLL',aSbiS'iL',iiS'iL',bS'iL';S'/cTiS',e;
         L'/aS'dLL',abSiS'dLL',aS'iL',abSiS'iL',e
 ```
+</details>
+
+
+
+# 6. CfgFirstFollow
+<details><summary>Explanation</summary> 
+For this task, you will implement the algorithms computing the functions First and Follow, for the variables of a given context-free grammar. Recall that a CFG is a quadruple (V,Σ,R,S) where V and Σ are disjoint alphabets (respectively, containing variables and terminals), R ⊆ V ×(V ∪Σ)∗ is a set of rules, and S ∈ V is the start variable.
+
+ • We make the following assumptions about input CFGs for simplicity.
+ 
+ a) The set V of variables consists of upper-case English letters.
+
+ b) The start variable is the symbol S.
+ 
+ c) The set Σ of terminals consists of lower-case English letters (except the letter e).
+ 
+ d) The letter “e” represents ε.
+ 
+ • You should implement a class constructor CfgFirstFollow, and two methods; first, and follow.
+ 
+ • CfgFirstFollow, a class constructor, takes one parameter which is a string description of a CFG and constructs a CFG instance. A string encoding a CFG is of the form V#T#R.
+ 
+ – V is a string representation of the set of variables; a semicolon-separated sequence of upper-case English letters, starting with S.
+ 
+ – T is a string representation of the set of terminals; a semicolon-separated sequence of alphabetically sorted lower-case English letters.
+ 
+ – R is a string representation of the set of rules. R is a semicolon-separated sequence of pairs. Each pair represents the largest set of rules with the same left-hand side. Pairs are of the form i/j where i is a variable of V and j is a string representation of the set of right-hand sides—a comma-separated sequence of strings. These pairs are sorted by the common left-hand side i based on the ordering of V.
+ 
+ • For example, consider the CFG G1 = ({S,T,L},{a,b,c,d,i},R,S), where R is given by the following productions.
+ ```plaintext
+ S −→ ScT |T
+ T −→ aSb|iaLb|ε
+ L −→ SdL |S
+ ```
+This CFG will have the following string encoding.
+```plaintext
+S; T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
+```
+
+ • The output of each of first and follow is a semi-colon-separated sequence of items, where each item is a /-separated pair. The first element of each pair is a variable of the grammar and the second element is a string representing the First or, respectively, the Follow set of that variable. The symbols in these strings should appear in alphabetical order. ($ always appears first.) The items themselves should appear in the order in which their respective variables appear in the input CFG.
+ 
+ • For example, the result of calling first on G1 may have the following form
+ ```plaintext
+ S/acei;T/aei;L/acdei
+ ```
+
+ Similarly, the result of calling follow on G1 may be as follows
+ ```plaintext
+ S/$bcd;T/$bcd;L/b
+ ```
+</details>
+
+
+# 7. Task 7: ANTLR Lexical Analysis
+<details><summary>Explanation</summary> 
+For this task, you need to implement a simple lexical analyzer using ANTLR (www.antlr.org). Your tutor will introduce you to ANTLR during the session, but you are urged to prepare by taking a look at the ANTLR documentation: [ANTLR4 Documentation](https://github.com/antlr/antlr4/blob/master/doc/index.md)
+
+Using ANTLR, you will implement a lexical analyzer with the following specifications. Given an input of a non-empty string of bits, the string should be split into segments and the outputs for consecutive segments should be produced in sequence. A segment is a string of length three, but if fewer than three symbols are what is available then the segment is the string of available symbols. If the segment is the string **000**, then the corresponding output is **ONE**. If the segment is any other string of length three, then the corresponding output is the result of ANDing the last two bits of the segment. If the segment is a string of length less than three, then the output is **ERROR**. Here are some illustrative examples.
+
+![table](https://github.com/Khaledayman9/Compilers-Algorithms/assets/105018459/89d8a716-3eb7-47df-84cd-18b5d7cee792)
 </details>
