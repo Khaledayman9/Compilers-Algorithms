@@ -190,7 +190,7 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  ```
  This CFG will have the following string encoding.
  ```plaintext
- S; A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,C,c,d;B/CACA,e;C/A,b,e
+ S;A;B;C#a;b;c;d;x#S/aAb,xB;A/Bc,C,c,d;B/CACA,e;C/A,b,e
  ```
  • toString returns a string representation of a CFG. This string representation is the same as the one used for the input to the constructor.
  
@@ -297,7 +297,7 @@ For this task, you will implement the algorithms computing the functions First a
  ```
 This CFG will have the following string encoding.
 ```plaintext
-S; T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
+S;T;L#a;b;c;d;i#S/ScT,T;T/aSb,iaLb,e;L/SdL,S
 ```
 
  • The output of each of first and follow is a semi-colon-separated sequence of items, where each item is a /-separated pair. The first element of each pair is a variable of the grammar and the second element is a string representing the First or, respectively, the Follow set of that variable. The symbols in these strings should appear in alphabetical order. ($ always appears first.) The items themselves should appear in the order in which their respective variables appear in the input CFG.
