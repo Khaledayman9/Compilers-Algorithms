@@ -26,6 +26,7 @@ For this task, we need to implement Thompson’s construction for converting a r
  
  c) The empty string ε is represented by e.
  
+ 
  d) ◦ is represented by . and ∪ by |.
  
  e) Regular expressions are represented in postfix notation.
