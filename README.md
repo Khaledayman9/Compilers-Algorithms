@@ -5,7 +5,7 @@ A series of tasks and projects related to compiler construction and automata the
 
 **TASKS**:
 1. RegExToNfa
-2. Nfa To Dfa
+2. NfaToDfa
 3. FallbackDfa
 4. CfgEpsUnitElim
 5. CfgLeftRecElim
@@ -18,14 +18,15 @@ A series of tasks and projects related to compiler construction and automata the
 # 1. RegExToNfa
 <details><summary>Explanation</summary> 
 For this task, we need to implement Thompson’s construction for converting a regular expression to an equivalent NFA. Description of Thompson’s construction can be found in Chapter 3 of the textbook and at https://en.wikipedia.org/wiki/Thompson’s_construction
-- We make the following assumptions for simplicity.
+
+ - We make the following assumptions for simplicity.
+ 
  a) The alphabet Σ of the regular expression is always a subset of the Latin alphabet,
  not including e.
 
  b) Regular expressions do not include ∅.
  
  c) The empty string ε is represented by e.
- 
  
  d) ◦ is represented by . and ∪ by |.
  
@@ -43,7 +44,7 @@ For this task, we need to implement Thompson’s construction for converting a r
  
  • toString returns a string describing the NFA resulting from Thompson’s construction. A string describing the NFA resulting from Thompson’s construction is of the form Q#A#T#I#F.
  
-– Qis a string representation of the set of states; a semicolon-separated sequence of sorted integer literals.
+– Q is a string representation of the set of states; a semicolon-separated sequence of sorted integer literals.
  
 – A is a string representation of the input alphabet; a semicolon-separated sequence of alphabetically sorted symbols
 
@@ -64,7 +65,8 @@ For this task, we need to implement Thompson’s construction for converting a r
 <details><summary>Explanation</summary> 
 For this task, you need to implement the classical algorithm for constructing a deterministic finite automaton (DFA) equivalent to a given non-deterministic finite automaton (NFA). Recall that an NFA is a quintuple (Q,Σ,δ,q0,F): Q is a non-empty, finite set of states; Σ is non-empty, finite set of symbols (an alphabet); δ : Q × (Σ ∪ {ε}) −→ P(Q) is the transition function; q0 ∈ Q is the start state; and F ⊆ Q is the set of accept states. Given a description of an NFA, you need to construct an equivalent DFA.
 
-• Wemake the following assumptions for simplicity.
+• We make the following assumptions for simplicity.
+
  a) The alphabet Σ is always a subset of the Latin alphabet, not including e.
  
  b) The letter “e” represents ε.
@@ -162,8 +164,8 @@ For this task, you will implement the algorithms for eliminating epsilon and uni
  
  a) The set V of variables consists of upper-case English letters.
  
- b) The start variable is the symbol S
- .
+ b) The start variable is the symbol S.
+ 
  c) The set Σ of terminals consists of lower-case English letters (except the letter e).
  
  d) The letter “e” represents ε.
