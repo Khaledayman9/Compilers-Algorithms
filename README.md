@@ -19,7 +19,7 @@ A series of tasks and projects related to compiler construction and automata the
 <details><summary>Explanation</summary> 
 For this task, we need to implement Thompson’s construction for converting a regular expression to an equivalent NFA. Description of Thompson’s construction can be found in Chapter 3 of the textbook and at https://en.wikipedia.org/wiki/Thompson’s_construction
 
- - We make the following assumptions for simplicity.
+ • We make the following assumptions for simplicity.
  
  a) The alphabet Σ of the regular expression is always a subset of the Latin alphabet,
  not including e.
